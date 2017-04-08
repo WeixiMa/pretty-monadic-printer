@@ -30,8 +30,18 @@ equals = char '='
 parens :: (MonadPretty w ann fmt m) => m () -> m ()
 parens x = char '(' >> x >> char ')'
 
+braces :: (MonadPretty w ann fmt m) => m () -> m ()
+braces x = char '{' >> x >> char '}'
+
 colon :: (MonadPretty w ann fmt m) => m ()
 colon = char ':'
 
 comma :: (MonadPretty w ann fmt m) => m ()
 comma = char ','
+
+punctuate :: (MonadPretty w ann fmt m) => m () -> [m ()] -> [m ()] 
+punctuate x es = case es of
+  [] -> []
+  [e] -> [e]
+  (e:es) -> e : x : punctuate x es
+
