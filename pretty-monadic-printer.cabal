@@ -19,20 +19,20 @@ library
                 , Exts.ExtPrec
                 , Rendering.RenderHTML
   other-modules:
-      Demos.STLCDemo
-    , Demos.ListDemo
+                Demos.STLCDemo
+              , Demos.ListDemo
   other-extensions:
-      KindSignatures
-    , MultiParamTypeClasses
-    , FunctionalDependencies
-    , ConstraintKinds
-    , ScopedTypeVariables
-    , DeriveFunctor
-    , FlexibleContexts
+                   KindSignatures
+                 , MultiParamTypeClasses
+                 , FunctionalDependencies
+                 , ConstraintKinds
+                 , ScopedTypeVariables
+                 , DeriveFunctor
+                 , FlexibleContexts
   build-depends:
-      base == 4.9.*
-    , mtl  == 2.2.*
-    , text == 1.2.*
-    , ansi-terminal == 0.6.*
-    , containers == 0.5.*
+                base == 4.9.*
+              , mtl  == 2.2.*
+              , text == 1.2.*
+              , ansi-terminal == 0.6.*
+              , containers == 0.5.*
   -- hs-source-dirs:
