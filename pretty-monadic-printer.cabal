@@ -1,0 +1,37 @@
+name:                pretty-monadic-printer
+version:             0.1.0.0
+-- synopsis:
+-- description:
+license:             MIT
+license-file:        LICENSE
+author:              David Christiansen and David Darais
+maintainer:          david.darais@gmail.com
+-- copyright:
+category:            Text
+build-type:          Simple
+--extra-source-files:  ChangeLog.md
+cabal-version:       >=1.10
+
+library
+  default-language: Haskell2010
+  exposed-modules:  Pretty
+  other-modules:
+      Exts.ExtPrec
+    , Rendering.RenderHTML
+    , Demos.STLCDemo
+    , Demos.ListDemo
+  other-extensions:
+      KindSignatures
+    , MultiParamTypeClasses
+    , FunctionalDependencies
+    , ConstraintKinds
+    , ScopedTypeVariables
+    , DeriveFunctor
+    , FlexibleContexts
+  build-depends:
+      base == 4.9.*
+    , mtl  == 2.2.*
+    , text == 1.2.*
+    , ansi-terminal == 0.6.*
+    , containers == 0.5.*
+  -- hs-source-dirs:
