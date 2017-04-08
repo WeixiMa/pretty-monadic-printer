@@ -14,11 +14,12 @@ cabal-version:       >=1.10
 
 library
   default-language: Haskell2010
-  exposed-modules:  Pretty
+  exposed-modules:
+                  Pretty
+                , Exts.ExtPrec
+                , Rendering.RenderHTML
   other-modules:
-      Exts.ExtPrec
-    , Rendering.RenderHTML
-    , Demos.STLCDemo
+      Demos.STLCDemo
     , Demos.ListDemo
   other-extensions:
       KindSignatures
