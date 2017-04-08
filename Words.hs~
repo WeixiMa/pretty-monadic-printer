@@ -27,11 +27,5 @@ import Pretty
 equals :: (MonadPretty w ann fmt m) => m ()
 equals = char '='
 
-parens :: (MonadPretty w ann fmt m) => m () -> m ()
-parens x = char '(' >> x >> char ')'
-
 colon :: (MonadPretty w ann fmt m) => m ()
-colon = char ':'
-
-comma :: (MonadPretty w ann fmt m) => m ()
-comma = char ','
+equals = char ':'
