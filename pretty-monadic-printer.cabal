@@ -19,6 +19,7 @@ library
                 , Words
                 , Exts.ExtPrec
                 , Rendering.RenderHTML
+                , Rendering.RenderConsole
   other-modules:
                 Demos.STLCDemo
               , Demos.ListDemo

@@ -29,6 +29,9 @@ import Pretty hiding (collection)
 import Exts.ExtPrec
 import Rendering.RenderHTML
 
+data Ann = Class Text | Tooltip Text
+  deriving (Eq, Ord, Show)
+
 -- The Language
 
 data Ty = Int | Arr Ty Ty
@@ -133,8 +136,12 @@ instance Monoid Doc where
   mempty = return ()
   mappend = (>>)
 
+renderAnnotation :: Ann -> Text -> Text
+renderAnnotation (Class c) t = mconcat [ "<span class='" , c , "'>" , t , "</span>" ]
+renderAnnotation (Tooltip p) t = mconcat [ "<span title='" , p , "'>" , t , "</span>" ]
+
 instance Show Doc where
-  show = T.unpack . render . execDoc
+  show = T.unpack . (render renderAnnotation) . execDoc
 
 -- Pretty Class for this Doc
 
