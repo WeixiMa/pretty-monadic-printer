@@ -33,15 +33,23 @@ parens x = char '(' >> x >> char ')'
 braces :: (MonadPretty w ann fmt m) => m () -> m ()
 braces x = char '{' >> x >> char '}'
 
+(<+>) :: (MonadPretty w ann fmt m) => m () -> m () -> m ()
+x <+> y = x >> space 1 >> y
+
 colon :: (MonadPretty w ann fmt m) => m ()
 colon = char ':'
 
 comma :: (MonadPretty w ann fmt m) => m ()
 comma = char ','
 
+mpconcat :: (MonadPretty w ann fmt m) => [m ()] -> m ()
+mpconcat es = case es of
+  [e]     -> e
+  (e:es)  -> e >> (mpconcat es)
+
 punctuate :: (MonadPretty w ann fmt m) => m () -> [m ()] -> [m ()] 
 punctuate x es = case es of
-  [] -> []
-  [e] -> [e]
+  []     -> []
+  [e]    -> [e]
   (e:es) -> e : x : punctuate x es
 

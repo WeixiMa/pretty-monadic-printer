@@ -107,8 +107,9 @@ closeTag _  = modify tail   >> updateColor
 renderAnnotation :: HsAnn -> StateT [HsAnn] IO () -> StateT [HsAnn] IO ()
 renderAnnotation a o = openTag a >> o >> closeTag a
 
-dumpList :: Doc -> IO ()
-dumpList = dumpDoc toSGR renderAnnotation . execDoc
+dumpList :: Pretty a => [a] -> IO ()
+dumpList = dumpDoc toSGR renderAnnotation . execDoc . pretty
+
 
 ---------------
 -- Test docs --
